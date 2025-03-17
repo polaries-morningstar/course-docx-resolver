@@ -120,6 +120,3 @@ if uploaded_file:
             goal_codes = extract_goal_codes(parsed_data[key])
             st.write(f"**提取的课程目标代码 ({key})**：")
             st.write(", ".join(goal_codes))
-        else:
-            st.warning("没有匹配的数据，请检查您的字段！")
-
