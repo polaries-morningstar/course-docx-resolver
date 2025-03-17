@@ -114,9 +114,12 @@ if uploaded_file:
     st.table(df)  # 显示静态表格
 
     # 7️⃣ 如果有 课程目标，提取目标代码
-    if "*课程目标 (Course Object)" in parsed_data:
-        goal_codes = extract_goal_codes(parsed_data["*课程目标 (Course Object)"])
-        st.write("**提取的课程目标代码**：")
-        st.write(", ".join(goal_codes))
-    else:
-        st.warning("没有匹配的数据，请检查您的字段！")
+    course_object_keys = ["课程目标 (Course Object)", "*课程目标 (Course Object)"]
+    for key in course_object_keys:
+        if key in parsed_data:
+            goal_codes = extract_goal_codes(parsed_data[key])
+            st.write(f"**提取的课程目标代码 ({key})**：")
+            st.write(", ".join(goal_codes))
+        else:
+            st.warning("没有匹配的数据，请检查您的字段！")
+
