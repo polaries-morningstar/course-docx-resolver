@@ -3,10 +3,6 @@ from docx import Document
 import pandas as pd
 import streamlit as st
 
-
-DOCPATH = "/home/byj/course-info/测试1.docx"
-
-
 class DocTableResovler:
     @classmethod
     def extract_docs_tables(cls, doc, required_keys=None):
